@@ -7,9 +7,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
   });
 
   document.querySelector('.send-button').addEventListener('click', (event) => {
-    const newElement = document.createElement('li');
     const text = document.querySelector('.input-text').value;
-    newElement.innerHTML = text;
-    document.querySelector('.user-list').appendChild(newElement);
+    fetch('/api/user', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ name: text }) })
   });
 });
